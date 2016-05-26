@@ -18,10 +18,6 @@ var Distributor = mongoose.model('Distributor', {
     lastName: String
 });
 
-app.get('/', function(req, res) {
-    //Get "Enter dist number" page
-});
-
 //Get dist name for confirmation modal
 app.get("/dist/:accountNo", function(req, res) {
     Distributor.findOne({account: req.params.accountNo}, function(err, distributor) {
@@ -35,11 +31,11 @@ app.get("/dist/:accountNo", function(req, res) {
 
 
 app.get('/order/:accountNo', function(req, res) {
-    //Get "Scan your items page"
+    //TODO: Get "Scan your items page"
 });
 
 app.get('/item/:itemNo', function(req, res) {
-   //Get item when barcode scanned
+   //TODO: Get item when barcode scanned
 });
 
 //Submit order object
@@ -49,8 +45,7 @@ app.post("/order", function(req, res) {
         if (err) {
             res.status(404).send(err)
         }
-
-        //Probably best to redirect to success page which auto directs to home.
+        
         res.status(200).send('order submitted!')
     })
 
